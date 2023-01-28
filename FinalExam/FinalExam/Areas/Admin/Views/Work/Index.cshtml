@@ -1,0 +1,38 @@
+﻿@using FinalExam.Models;
+@model List<Work>
+@{
+	ViewData["Title"] = "Index";
+	int count = 0;
+}
+<h1>Create Job</h1>
+<button><a asp-action="Create" asp-controller="Work">Create</a></button>
+<table class="table">
+	<thead>
+		<tr>
+			<th scope="col">#</th>
+			<th scope="col">Image</th>
+			<th scope="col">JobName</th>
+			<th scope="col">Description</th>
+
+			<th>Update</th>
+			<th>Delete</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var Work in Model)
+		{
+			count++;
+				<tr>
+					<th scope="row">@count</th>
+					<td>@Work.Image</td>
+					<td>@Work.Jobs.Name</td>
+					<td>
+						<button><a asp-route-Id="@Work.Id" asp-action="Update" asp-controller="Work">Update</a></button>
+					</td>
+					<td>
+						<button><a asp-route-Id="@Work.Id" asp-action="Delete" asp-controller="Work">Delete</a></button>
+					</td>
+				</tr>
+		}
+	</tbody>
+</table>

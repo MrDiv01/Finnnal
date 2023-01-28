@@ -1,0 +1,15 @@
+﻿@using FinalExam.Models;
+@model Job
+@{
+	ViewData["Title"] = "Create";
+
+}
+<h1>Create Job</h1>
+<form method="post" asp-action="Create">
+	<div class="form-group">
+		<label asp-for="Name">Email address</label>
+		<input asp-for="Name" class="form-control" aria-describedby="emailHelp" placeholder="Name">
+	</div>
+	<button type="submit" asp-action="Create" class="btn btn-primary">Submit</button>
+</form>
+

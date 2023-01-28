@@ -1,0 +1,28 @@
+﻿@using FinalExam.Models;
+@model Work
+@{
+    ViewData["Title"] = "Update";
+}
+
+<h1>Create Job</h1>
+<form method="post" asp-action="Update" asp-controller="Work" enctype="multipart/form-data">
+	<div class="form-group">
+		<label asp-for="ImageFile">ImageFile</label>
+		<input asp-for="ImageFile" class="form-control" aria-describedby="emailHelp" placeholder="Name">
+	</div>
+	<div class="form-group">
+		<label asp-for="Description">Description</label>
+		<input asp-for="Description" class="form-control" aria-describedby="emailHelp" placeholder="Name">
+	</div>
+	<div class="form-group">
+		<select asp-for="JobId" class="form-select" aria-label="Default select example">
+			@foreach (Job job in ViewBag.Job)
+			{
+				<option  value="@job.Id">@job.Name</option>
+			}
+		</select>
+	</div>
+	<button type="submit" asp-action="Update" class="btn btn-primary">Submit</button>
+</form>
+
+
